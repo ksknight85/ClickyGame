@@ -4,7 +4,7 @@ import FriendCard from "./FriendCard/Index"
 
 
 function ShuffleFriends(props) {
-  const friends = props.friends.sort(() => .5 - Math.random()).slice(0, 10)
+  const friends = props.friends.sort(() => .5 - Math.random()).slice(0, 8)
   return (
     <>
       {friends.map(friend => (

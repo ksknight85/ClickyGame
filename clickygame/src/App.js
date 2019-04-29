@@ -7,21 +7,45 @@ import Header from "./components/Header/Index"
 class App extends Component {
   state = {
     chosen: [],
-    friends
+    friends,
+    score: 0,
+    topScore: 0
   }
-
   chooseFriend = id => {
-    return alert("Hit me")
+    let picked = this.state.chosen
+    if (picked.includes(id)) {
+      alert("Already chosen")
+      if (this.state.score > this.state.topScore) {
+        alert("New high score!!")
+        this.setState({
+          topScore: this.state.score
+        })
+      }
+      this.setState({
+        score: 0,
+        chosen: []
+      })
+      return
+    }
+    picked.push(id)
+    this.setState({
+      chosen: picked,
+      score: (this.state.score + 1)
+    })
+    console.log(this.state.chosen)
   }
-
 
   render() {
     return (
       <Wrapper>
-        <Header />
+        <Header
+          score={this.state.score}
+          topScore={this.state.topScore}
+        />
         <ShuffleFriends
           friends={this.state.friends}
           chooseFriend={this.chooseFriend}
+          chosen={this.state.chosen}
         />
       </Wrapper >
     );

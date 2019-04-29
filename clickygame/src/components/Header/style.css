@@ -4,5 +4,9 @@
   font-size: 3rem;
   color: #2A77AE;
   background-color: aliceblue;
-  padding: 1.5%;
+  padding: .5%;
+}
+
+.instructions {
+  font-size: 16pt;
 }
